@@ -52,11 +52,9 @@ SFML-Engine-2019/CMakeFiles/SFML-Engine.dir/InputComponent.cpp.o: ../SFML-Engine
 SFML-Engine-2019/CMakeFiles/SFML-Engine.dir/InputComponent.cpp.o: ../SFML-Engine-2019/InputComponent.hpp
 SFML-Engine-2019/CMakeFiles/SFML-Engine.dir/InputComponent.cpp.o: ../SFML-Engine-2019/Node.hpp
 
-SFML-Engine-2019/CMakeFiles/SFML-Engine.dir/Node.cpp.o: ../SFML-Engine-2019/Collection.hpp
 SFML-Engine-2019/CMakeFiles/SFML-Engine.dir/Node.cpp.o: ../SFML-Engine-2019/Node.cpp
 SFML-Engine-2019/CMakeFiles/SFML-Engine.dir/Node.cpp.o: ../SFML-Engine-2019/Node.hpp
 
-SFML-Engine-2019/CMakeFiles/SFML-Engine.dir/Node2D.cpp.o: ../SFML-Engine-2019/Collection.hpp
 SFML-Engine-2019/CMakeFiles/SFML-Engine.dir/Node2D.cpp.o: ../SFML-Engine-2019/Node.hpp
 SFML-Engine-2019/CMakeFiles/SFML-Engine.dir/Node2D.cpp.o: ../SFML-Engine-2019/Node2D.cpp
 SFML-Engine-2019/CMakeFiles/SFML-Engine.dir/Node2D.cpp.o: ../SFML-Engine-2019/Node2D.hpp
@@ -85,7 +83,6 @@ SFML-Engine-2019/CMakeFiles/SFML-Engine.dir/RectCollisionShape.cpp.o: ../SFML-En
 SFML-Engine-2019/CMakeFiles/SFML-Engine.dir/RectCollisionShape.cpp.o: ../SFML-Engine-2019/RectCollisionShape.cpp
 SFML-Engine-2019/CMakeFiles/SFML-Engine.dir/RectCollisionShape.cpp.o: ../SFML-Engine-2019/RectCollisionShape.hpp
 
-SFML-Engine-2019/CMakeFiles/SFML-Engine.dir/SpriteStack.cpp.o: ../SFML-Engine-2019/Collection.hpp
 SFML-Engine-2019/CMakeFiles/SFML-Engine.dir/SpriteStack.cpp.o: ../SFML-Engine-2019/Node.hpp
 SFML-Engine-2019/CMakeFiles/SFML-Engine.dir/SpriteStack.cpp.o: ../SFML-Engine-2019/Node2D.hpp
 SFML-Engine-2019/CMakeFiles/SFML-Engine.dir/SpriteStack.cpp.o: ../SFML-Engine-2019/SpriteStack.cpp
