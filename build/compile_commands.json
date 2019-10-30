@@ -1,0 +1,92 @@
+[
+{
+  "directory": "/home/esther2/Documents/Code/C++/SpriteStack/build",
+  "command": "/bin/x86_64-linux-gnu-g++-8   -I/home/esther2/Documents/Code/C++/SpriteStack/SFML-Engine-2019  -g   -o CMakeFiles/SpriteStack.dir/main.cpp.o -c /home/esther2/Documents/Code/C++/SpriteStack/main.cpp",
+  "file": "/home/esther2/Documents/Code/C++/SpriteStack/main.cpp"
+},
+{
+  "directory": "/home/esther2/Documents/Code/C++/SpriteStack/build",
+  "command": "/bin/x86_64-linux-gnu-g++-8   -I/home/esther2/Documents/Code/C++/SpriteStack/SFML-Engine-2019  -g   -o CMakeFiles/SpriteStack.dir/MyGame.cpp.o -c /home/esther2/Documents/Code/C++/SpriteStack/MyGame.cpp",
+  "file": "/home/esther2/Documents/Code/C++/SpriteStack/MyGame.cpp"
+},
+{
+  "directory": "/home/esther2/Documents/Code/C++/SpriteStack/build",
+  "command": "/bin/x86_64-linux-gnu-g++-8   -I/home/esther2/Documents/Code/C++/SpriteStack/SFML-Engine-2019  -g   -o CMakeFiles/SpriteStack.dir/MyStack.cpp.o -c /home/esther2/Documents/Code/C++/SpriteStack/MyStack.cpp",
+  "file": "/home/esther2/Documents/Code/C++/SpriteStack/MyStack.cpp"
+},
+{
+  "directory": "/home/esther2/Documents/Code/C++/SpriteStack/build/SFML-Engine-2019",
+  "command": "/bin/x86_64-linux-gnu-g++-8   -I/home/esther2/Documents/Code/C++/SpriteStack/SFML-Engine-2019  -g   -o CMakeFiles/SFML-Engine.dir/Node.cpp.o -c /home/esther2/Documents/Code/C++/SpriteStack/SFML-Engine-2019/Node.cpp",
+  "file": "/home/esther2/Documents/Code/C++/SpriteStack/SFML-Engine-2019/Node.cpp"
+},
+{
+  "directory": "/home/esther2/Documents/Code/C++/SpriteStack/build/SFML-Engine-2019",
+  "command": "/bin/x86_64-linux-gnu-g++-8   -I/home/esther2/Documents/Code/C++/SpriteStack/SFML-Engine-2019  -g   -o CMakeFiles/SFML-Engine.dir/Node2D.cpp.o -c /home/esther2/Documents/Code/C++/SpriteStack/SFML-Engine-2019/Node2D.cpp",
+  "file": "/home/esther2/Documents/Code/C++/SpriteStack/SFML-Engine-2019/Node2D.cpp"
+},
+{
+  "directory": "/home/esther2/Documents/Code/C++/SpriteStack/build/SFML-Engine-2019",
+  "command": "/bin/x86_64-linux-gnu-g++-8   -I/home/esther2/Documents/Code/C++/SpriteStack/SFML-Engine-2019  -g   -o CMakeFiles/SFML-Engine.dir/Collection.cpp.o -c /home/esther2/Documents/Code/C++/SpriteStack/SFML-Engine-2019/Collection.cpp",
+  "file": "/home/esther2/Documents/Code/C++/SpriteStack/SFML-Engine-2019/Collection.cpp"
+},
+{
+  "directory": "/home/esther2/Documents/Code/C++/SpriteStack/build/SFML-Engine-2019",
+  "command": "/bin/x86_64-linux-gnu-g++-8   -I/home/esther2/Documents/Code/C++/SpriteStack/SFML-Engine-2019  -g   -o CMakeFiles/SFML-Engine.dir/RectCollisionShape.cpp.o -c /home/esther2/Documents/Code/C++/SpriteStack/SFML-Engine-2019/RectCollisionShape.cpp",
+  "file": "/home/esther2/Documents/Code/C++/SpriteStack/SFML-Engine-2019/RectCollisionShape.cpp"
+},
+{
+  "directory": "/home/esther2/Documents/Code/C++/SpriteStack/build/SFML-Engine-2019",
+  "command": "/bin/x86_64-linux-gnu-g++-8   -I/home/esther2/Documents/Code/C++/SpriteStack/SFML-Engine-2019  -g   -o CMakeFiles/SFML-Engine.dir/CircleCollisionShape.cpp.o -c /home/esther2/Documents/Code/C++/SpriteStack/SFML-Engine-2019/CircleCollisionShape.cpp",
+  "file": "/home/esther2/Documents/Code/C++/SpriteStack/SFML-Engine-2019/CircleCollisionShape.cpp"
+},
+{
+  "directory": "/home/esther2/Documents/Code/C++/SpriteStack/build/SFML-Engine-2019",
+  "command": "/bin/x86_64-linux-gnu-g++-8   -I/home/esther2/Documents/Code/C++/SpriteStack/SFML-Engine-2019  -g   -o CMakeFiles/SFML-Engine.dir/CollisionShape.cpp.o -c /home/esther2/Documents/Code/C++/SpriteStack/SFML-Engine-2019/CollisionShape.cpp",
+  "file": "/home/esther2/Documents/Code/C++/SpriteStack/SFML-Engine-2019/CollisionShape.cpp"
+},
+{
+  "directory": "/home/esther2/Documents/Code/C++/SpriteStack/build/SFML-Engine-2019",
+  "command": "/bin/x86_64-linux-gnu-g++-8   -I/home/esther2/Documents/Code/C++/SpriteStack/SFML-Engine-2019  -g   -o CMakeFiles/SFML-Engine.dir/Component.cpp.o -c /home/esther2/Documents/Code/C++/SpriteStack/SFML-Engine-2019/Component.cpp",
+  "file": "/home/esther2/Documents/Code/C++/SpriteStack/SFML-Engine-2019/Component.cpp"
+},
+{
+  "directory": "/home/esther2/Documents/Code/C++/SpriteStack/build/SFML-Engine-2019",
+  "command": "/bin/x86_64-linux-gnu-g++-8   -I/home/esther2/Documents/Code/C++/SpriteStack/SFML-Engine-2019  -g   -o CMakeFiles/SFML-Engine.dir/PhysicsComponent.cpp.o -c /home/esther2/Documents/Code/C++/SpriteStack/SFML-Engine-2019/PhysicsComponent.cpp",
+  "file": "/home/esther2/Documents/Code/C++/SpriteStack/SFML-Engine-2019/PhysicsComponent.cpp"
+},
+{
+  "directory": "/home/esther2/Documents/Code/C++/SpriteStack/build/SFML-Engine-2019",
+  "command": "/bin/x86_64-linux-gnu-g++-8   -I/home/esther2/Documents/Code/C++/SpriteStack/SFML-Engine-2019  -g   -o CMakeFiles/SFML-Engine.dir/GraphicsComponent.cpp.o -c /home/esther2/Documents/Code/C++/SpriteStack/SFML-Engine-2019/GraphicsComponent.cpp",
+  "file": "/home/esther2/Documents/Code/C++/SpriteStack/SFML-Engine-2019/GraphicsComponent.cpp"
+},
+{
+  "directory": "/home/esther2/Documents/Code/C++/SpriteStack/build/SFML-Engine-2019",
+  "command": "/bin/x86_64-linux-gnu-g++-8   -I/home/esther2/Documents/Code/C++/SpriteStack/SFML-Engine-2019  -g   -o CMakeFiles/SFML-Engine.dir/Physics.cpp.o -c /home/esther2/Documents/Code/C++/SpriteStack/SFML-Engine-2019/Physics.cpp",
+  "file": "/home/esther2/Documents/Code/C++/SpriteStack/SFML-Engine-2019/Physics.cpp"
+},
+{
+  "directory": "/home/esther2/Documents/Code/C++/SpriteStack/build/SFML-Engine-2019",
+  "command": "/bin/x86_64-linux-gnu-g++-8   -I/home/esther2/Documents/Code/C++/SpriteStack/SFML-Engine-2019  -g   -o CMakeFiles/SFML-Engine.dir/Graphics.cpp.o -c /home/esther2/Documents/Code/C++/SpriteStack/SFML-Engine-2019/Graphics.cpp",
+  "file": "/home/esther2/Documents/Code/C++/SpriteStack/SFML-Engine-2019/Graphics.cpp"
+},
+{
+  "directory": "/home/esther2/Documents/Code/C++/SpriteStack/build/SFML-Engine-2019",
+  "command": "/bin/x86_64-linux-gnu-g++-8   -I/home/esther2/Documents/Code/C++/SpriteStack/SFML-Engine-2019  -g   -o CMakeFiles/SFML-Engine.dir/Input.cpp.o -c /home/esther2/Documents/Code/C++/SpriteStack/SFML-Engine-2019/Input.cpp",
+  "file": "/home/esther2/Documents/Code/C++/SpriteStack/SFML-Engine-2019/Input.cpp"
+},
+{
+  "directory": "/home/esther2/Documents/Code/C++/SpriteStack/build/SFML-Engine-2019",
+  "command": "/bin/x86_64-linux-gnu-g++-8   -I/home/esther2/Documents/Code/C++/SpriteStack/SFML-Engine-2019  -g   -o CMakeFiles/SFML-Engine.dir/Game.cpp.o -c /home/esther2/Documents/Code/C++/SpriteStack/SFML-Engine-2019/Game.cpp",
+  "file": "/home/esther2/Documents/Code/C++/SpriteStack/SFML-Engine-2019/Game.cpp"
+},
+{
+  "directory": "/home/esther2/Documents/Code/C++/SpriteStack/build/SFML-Engine-2019",
+  "command": "/bin/x86_64-linux-gnu-g++-8   -I/home/esther2/Documents/Code/C++/SpriteStack/SFML-Engine-2019  -g   -o CMakeFiles/SFML-Engine.dir/SpriteStack.cpp.o -c /home/esther2/Documents/Code/C++/SpriteStack/SFML-Engine-2019/SpriteStack.cpp",
+  "file": "/home/esther2/Documents/Code/C++/SpriteStack/SFML-Engine-2019/SpriteStack.cpp"
+},
+{
+  "directory": "/home/esther2/Documents/Code/C++/SpriteStack/build/SFML-Engine-2019",
+  "command": "/bin/x86_64-linux-gnu-g++-8   -I/home/esther2/Documents/Code/C++/SpriteStack/SFML-Engine-2019  -g   -o CMakeFiles/SFML-Engine.dir/InputComponent.cpp.o -c /home/esther2/Documents/Code/C++/SpriteStack/SFML-Engine-2019/InputComponent.cpp",
+  "file": "/home/esther2/Documents/Code/C++/SpriteStack/SFML-Engine-2019/InputComponent.cpp"
+}
+]
