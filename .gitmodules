@@ -1,0 +1,4 @@
+[submodule "SFML-Engine-2019"]
+	path = SFML-Engine-2019
+	url = git@github.com:EstevanBR/SFML-Engine-2019.git
+	branch = master

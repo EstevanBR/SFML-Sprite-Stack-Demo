@@ -10,9 +10,7 @@ void MyGame::initialized(Engine &engine) {
     const sf::Vector2u windowSize = engine.window.getSize();
     if (floorTex.loadFromFile("tile.png")) {
         floor = std::shared_ptr<sf::Sprite>(new sf::Sprite(floorTex));
-        floor->move(sf::Vector2f(windowSize.x / 2,-windowSize.x / 2));
-        floor->rotate(45.0f);
-        floor->setScale(sf::Vector2f(10.f, 10.f));
+        floor->setScale(sf::Vector2f(1.f, 1.f));
         floor->setTextureRect(sf::IntRect(0,0,windowSize.x * 2,windowSize.x * 2));
         floorTex.setRepeated(true);
         engine.graphics.Collection<sf::Drawable>::addObject(floor);
@@ -20,10 +18,19 @@ void MyGame::initialized(Engine &engine) {
     engine.window.setVerticalSyncEnabled(true);
     engine.window.setFramerateLimit(60);
     engine.window.setKeyRepeatEnabled(false);
-    
-    //engine.window.setView(view);
-    //view.setSize(1.0, 0.707);
+    engine.camera.setSize(
+        sf::Vector2f(
+            windowSize.x,
+            windowSize.y * (1.f + (1.f - 0.707f))
+        )
+    );
+    engine.camera.setCenter(windowSize.x / 2, (windowSize.y / 2) / 0.707);
+    //view.setRotation(0.45f);
+    engine.camera.rotate(45.f);
+    engine.camera.setViewport(sf::FloatRect(0.f, 0.f, 3.f, 3.f));
 
+    engine.window.setView(engine.camera);
+    
     myStack = std::shared_ptr<MyStack>(new MyStack(engine.tree, engine.physics, engine.graphics, engine.input));
 }
 

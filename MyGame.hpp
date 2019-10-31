@@ -10,7 +10,6 @@ class MyStack;
 class MyGame: public Game {
 private:
 	friend class Game;
-	sf::View view;
 	std::shared_ptr<MyStack> myStack;
 	std::shared_ptr<sf::Sprite> floor;
 	
