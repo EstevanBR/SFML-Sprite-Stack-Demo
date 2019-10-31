@@ -1,6 +1,0 @@
-/home/esther2/Documents/Code/C++/SpriteStack/build/CMakeFiles/rebuild_cache.dir
-/home/esther2/Documents/Code/C++/SpriteStack/build/CMakeFiles/SpriteStack.dir
-/home/esther2/Documents/Code/C++/SpriteStack/build/CMakeFiles/edit_cache.dir
-/home/esther2/Documents/Code/C++/SpriteStack/build/SFML-Engine-2019/CMakeFiles/rebuild_cache.dir
-/home/esther2/Documents/Code/C++/SpriteStack/build/SFML-Engine-2019/CMakeFiles/SFML-Engine.dir
-/home/esther2/Documents/Code/C++/SpriteStack/build/SFML-Engine-2019/CMakeFiles/edit_cache.dir
