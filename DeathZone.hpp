@@ -7,15 +7,15 @@
 #include "Physics.hpp"
 #include "PhysicsComponent.hpp"
 
-class PhysicsComponent;
+class PhysicsComponentBase;
 
 class DeathZone {
 private:
     friend class Game;
 
-    std::shared_ptr<PhysicsComponent> physicsComponent;
+    std::shared_ptr<PhysicsComponentBase> physicsComponent;
     DeathZone(float radius, Physics &physics) {
-        PhysicsComponent(physics);
+        PhysicsComponentBase(physics);
         
     }
 

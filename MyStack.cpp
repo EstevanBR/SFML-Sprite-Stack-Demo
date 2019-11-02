@@ -12,37 +12,44 @@ std::string name = "MyStack";
 MyStack::MyStack(Tree &tree, Physics &physics, Graphics &graphics, Input &input): SpriteStack("icon.png", sf::Vector3i(16, 16, 16)) {
     tree.addObject(std::shared_ptr<Node>(this));
     
-    inputComponent = std::shared_ptr<MyStackInputComponent>(new MyStackInputComponent(input, *this));
-    physicsComponent = std::shared_ptr<MyStackPhysicsComponent>(new MyStackPhysicsComponent(*inputComponent, physics, *this));
+    inputComponent = std::shared_ptr<MyStackInputComponent>(new MyStackInputComponent(input));
+    physicsComponent = std::shared_ptr<MyStackPhysicsComponent>(new MyStackPhysicsComponent(*this, *inputComponent, physics));
     
     
-
+    
     tree.addObject<MyStackInputComponent>(inputComponent);
     tree.addObject<MyStackPhysicsComponent>(physicsComponent);
 
     graphics.Collection<sf::Drawable>::addObject(std::shared_ptr<sf::Drawable>(this));
 }
 
+
+
 void MyStack::process(float delta) {
     //_angle += delta * 22.5f;
 }
 
-MyStackPhysicsComponent::MyStackPhysicsComponent(MyStackInputComponent &inputComponent, Physics &physics, MyStack &myStack):
+MyStackPhysicsComponent::MyStackPhysicsComponent(MyStack &owner, MyStackInputComponent &inputComponent, Physics &physics):
     _inputComponent(inputComponent),
-    PhysicsComponent<MyStack>(physics, myStack) {
-        auto id = physics.addObject(std::shared_ptr<RectCollisionShape>(new RectCollisionShape(sf::FloatRect(-8,-8,16,16))));
+    PhysicsComponent<MyStack>(owner, physics) {
+        auto id = physics.addObject(std::shared_ptr<RectCollisionShape>(new RectCollisionShape(*this, sf::FloatRect(-8,-8,16,16))));
         addObject(physics.getObject(id));
+}
+void MyStackPhysicsComponent::collidedWithPhysicsComponent(PhysicsComponentBase &physicsComponent) {
+    if (dynamic_cast<MyStackPhysicsComponent *>(&physicsComponent) != nullptr) {
+        //std::cout << "Collided with a MyStackPhysicsComponent" << std::endl;
+    }
 }
 
 void MyStackPhysicsComponent::process(float delta) {
     _velocity += _inputComponent.inputVector * 15.f * delta;
     _velocity.x *= _friction.x;
     _velocity.y *= _friction.y;
-    owner.position.x += _velocity.x;
-    owner.position.y += _velocity.y;
+    _owner.position.x += _velocity.x;
+    _owner.position.y += _velocity.y;
 }
 
-MyStackInputComponent::MyStackInputComponent(Input &input, MyStack &myStack): InputComponent<MyStack>(input, myStack) {
+MyStackInputComponent::MyStackInputComponent(Input &input): InputComponent(input) {
 		
 }
 

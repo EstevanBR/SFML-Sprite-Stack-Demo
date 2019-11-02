@@ -22,26 +22,28 @@ class MyStackPhysicsComponent: public PhysicsComponent<MyStack> {
 	MyStackInputComponent &_inputComponent;
 	sf::Vector2f _velocity;
 	sf::Vector2f _friction = sf::Vector2f(0.9f, 0.9f);
-	MyStackPhysicsComponent(MyStackInputComponent &inputComponent, Physics &physics, MyStack &myStack);
+	MyStackPhysicsComponent(MyStack &owner, MyStackInputComponent &inputComponent, Physics &physics);
 	void process(float delta) override;
+	void collidedWithPhysicsComponent(PhysicsComponentBase &physicsComponent) override;
 public:
 	const sf::Vector2f &velocity = _velocity;
 	const sf::Vector2f &fricton = _friction;
 };
 
-class MyStackInputComponent: public InputComponent<MyStack> {
+class MyStackInputComponent: public InputComponent {
 private:
 	friend class MyStack;
 	sf::Vector2f _inputVector = sf::Vector2f(0,0);
-	MyStackInputComponent(Input &input, MyStack &myStack);
+	MyStackInputComponent(Input &input);
 	void process(float delta) override;
+	
 public:
 	const sf::Vector2f &inputVector = _inputVector;
 };
 
 class MyStack: public SpriteStack {
 private:
-	
+	friend class MyStackPhysicsComponent;
 	
 
 	std::string name = "MyStack";
