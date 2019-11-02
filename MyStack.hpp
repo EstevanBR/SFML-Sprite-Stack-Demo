@@ -34,7 +34,7 @@ private:
 	friend class MyStack;
 	sf::Vector2f _inputVector = sf::Vector2f(0,0);
 	MyStackInputComponent(Input &input, MyStack &myStack);
-	void process(float delta);
+	void process(float delta) override;
 public:
 	const sf::Vector2f &inputVector = _inputVector;
 };

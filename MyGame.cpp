@@ -5,6 +5,10 @@
 
 sf::Texture floorTex;
 
+MyGame::MyGame() {
+    main(sf::VideoMode(1920,1080), "MyGame", sf::Style::Resize|sf::Style::Close);
+}
+
 void MyGame::initialized(Engine &engine) {
     std::cout << "MyGame::initialized" << std::endl;
     const sf::Vector2u windowSize = engine.window.getSize();
@@ -18,16 +22,17 @@ void MyGame::initialized(Engine &engine) {
     engine.window.setVerticalSyncEnabled(true);
     engine.window.setFramerateLimit(60);
     engine.window.setKeyRepeatEnabled(false);
+
+    engine.camera.setCenter(windowSize.x / 2, (windowSize.y / 2));
     engine.camera.setSize(
         sf::Vector2f(
-            windowSize.x,
-            windowSize.y * (1.f + (1.f - 0.707f))
+            windowSize.x * 0.5f,
+            windowSize.y * (1.f + (1.f - 0.707f)) * 0.5f
         )
     );
-    engine.camera.setCenter(windowSize.x / 2, (windowSize.y / 2) / 0.707);
-    //view.setRotation(0.45f);
-    engine.camera.rotate(45.f);
-    engine.camera.setViewport(sf::FloatRect(0.f, 0.f, 3.f, 3.f));
+
+    
+    engine.camera.setViewport(sf::FloatRect(0.f, 0.f, 1.f, 1.f));
 
     engine.window.setView(engine.camera);
     

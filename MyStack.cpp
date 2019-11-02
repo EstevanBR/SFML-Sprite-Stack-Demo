@@ -5,6 +5,8 @@
 #include "Tree.hpp"
 #include "Graphics.hpp"
 #include "Input.hpp"
+#include "RectCollisionShape.hpp"
+#include "Physics.hpp"
 
 std::string name = "MyStack";
 MyStack::MyStack(Tree &tree, Physics &physics, Graphics &graphics, Input &input): SpriteStack("icon.png", sf::Vector3i(16, 16, 16)) {
@@ -22,13 +24,14 @@ MyStack::MyStack(Tree &tree, Physics &physics, Graphics &graphics, Input &input)
 }
 
 void MyStack::process(float delta) {
-    _angle += delta * 22.5f;
+    //_angle += delta * 22.5f;
 }
 
 MyStackPhysicsComponent::MyStackPhysicsComponent(MyStackInputComponent &inputComponent, Physics &physics, MyStack &myStack):
     _inputComponent(inputComponent),
     PhysicsComponent<MyStack>(physics, myStack) {
-    
+        auto id = physics.addObject(std::shared_ptr<RectCollisionShape>(new RectCollisionShape(sf::FloatRect(-8,-8,16,16))));
+        addObject(physics.getObject(id));
 }
 
 void MyStackPhysicsComponent::process(float delta) {
