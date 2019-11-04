@@ -12,7 +12,6 @@ private:
 	friend class Game;
 
 	std::shared_ptr<MyStack> myStack1;
-	std::shared_ptr<MyStack> myStack2;
 	std::shared_ptr<sf::Sprite> floor;
 	
 	void initialized(Engine &engine) override;

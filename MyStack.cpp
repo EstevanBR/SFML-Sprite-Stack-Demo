@@ -9,37 +9,24 @@
 #include "Physics.hpp"
 
 std::string name = "MyStack";
-MyStack::MyStack(Tree &tree, Physics &physics, Graphics &graphics, Input &input): SpriteStack("icon.png", sf::Vector3i(16, 16, 16)) {
-    tree.addObject(std::shared_ptr<Node>(this));
-    
-    inputComponent = std::shared_ptr<MyStackInputComponent>(new MyStackInputComponent(input));
-    physicsComponent = std::shared_ptr<MyStackPhysicsComponent>(new MyStackPhysicsComponent(*this, *inputComponent, physics));
-    
-    
-    
-    tree.addObject<MyStackInputComponent>(inputComponent);
-    tree.addObject<MyStackPhysicsComponent>(physicsComponent);
-
-    graphics.Collection<sf::Drawable>::addObject(std::shared_ptr<sf::Drawable>(this));
+MyStack::MyStack(Engine &engine) {
+    inputComponent = std::shared_ptr<MyStackInputComponent>(new MyStackInputComponent(engine, *this));
+    physicsComponent = std::shared_ptr<MyStackPhysicsComponent>(new MyStackPhysicsComponent(engine, *this, *inputComponent));
+    graphicsComponent = std::shared_ptr<MyStackGraphicsComponent>(new MyStackGraphicsComponent(engine, *this));
 }
-
-
 
 void MyStack::process(float delta) {
-    //_angle += delta * 22.5f;
+
 }
 
-MyStackPhysicsComponent::MyStackPhysicsComponent(MyStack &owner, MyStackInputComponent &inputComponent, Physics &physics):
+MyStackPhysicsComponent::MyStackPhysicsComponent(Engine &engine, MyStack &owner, MyStackInputComponent &inputComponent):
     _inputComponent(inputComponent),
-    PhysicsComponent<MyStack>(owner, physics) {
-        auto id = physics.addObject(std::shared_ptr<RectCollisionShape>(new RectCollisionShape(*this, sf::FloatRect(-8,-8,16,16))));
-        addObject(physics.getObject(id));
+    _owner(owner),
+    EntityPhysicsComponent<MyStack>(engine, owner) {
+        engine.physics.addObject(std::shared_ptr<RectCollisionShape>(new RectCollisionShape(*this, -8,-8,16,16)));
 }
-void MyStackPhysicsComponent::collidedWithPhysicsComponent(PhysicsComponentBase &physicsComponent) {
-    if (dynamic_cast<MyStackPhysicsComponent *>(&physicsComponent) != nullptr) {
-        //std::cout << "Collided with a MyStackPhysicsComponent" << std::endl;
-    }
-}
+
+void MyStackPhysicsComponent::collided(CollisionShape &other) {}
 
 void MyStackPhysicsComponent::process(float delta) {
     _velocity += _inputComponent.inputVector * 15.f * delta;
@@ -49,7 +36,9 @@ void MyStackPhysicsComponent::process(float delta) {
     _owner.position.y += _velocity.y;
 }
 
-MyStackInputComponent::MyStackInputComponent(Input &input): InputComponent(input) {
+MyStackInputComponent::MyStackInputComponent(Engine &engine, MyStack &myStack):
+    _owner(myStack),
+    InputComponent<MyStack>(engine, myStack) {
 		
 }
 
@@ -57,14 +46,26 @@ void MyStackInputComponent::process(float delta) {
     _inputVector.x = 0.f;
     _inputVector.y = 0.f;
 
-    _inputVector.x += (subsystem.userInput.left) ? -1.f : 0.f;
-    _inputVector.x += (subsystem.userInput.right) ? 1.f : 0.f;
-    _inputVector.y += (subsystem.userInput.up) ? -1.f : 0.f;
-    _inputVector.y += (subsystem.userInput.down) ? 1.f : 0.f;
+    _inputVector.x += (engine.input.userInput.left) ? -1.f : 0.f;
+    _inputVector.x += (engine.input.userInput.right) ? 1.f : 0.f;
+    _inputVector.y += (engine.input.userInput.up) ? -1.f : 0.f;
+    _inputVector.y += (engine.input.userInput.down) ? 1.f : 0.f;
 
     if (_inputVector.x > 0.f || _inputVector.y > 0.f) {
         auto s = sqrtf(powf(_inputVector.x, 2.f) + powf(_inputVector.y, 2.f));
         _inputVector.x /= s;
         _inputVector.y /= s;
     }  
+    engine.camera.rotate(delta);
+    engine.window.setView(engine.camera);
+}
+
+MyStackGraphicsComponent::MyStackGraphicsComponent(Engine &engine, MyStack &owner):_owner(owner), GraphicsComponent<MyStack>(engine, owner) {
+    _stackSprite = std::shared_ptr<SpriteStack>(new SpriteStack("icon.png", sf::Vector3i(16, 16, 16)));
+    engine.graphics.addObject<SpriteStack>(_stackSprite);
+}
+
+void MyStackGraphicsComponent::process(float delta) {
+    _stackSprite->position = _owner.position;
+    _stackSprite->angle = -engine.camera.getRotation();
 }
