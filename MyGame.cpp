@@ -31,7 +31,8 @@ void MyGame::initialized(Engine &engine) {
         )
     );
 
-    myStack1 = std::shared_ptr<MyStack>(new MyStack(engine));
+    engine.tree.addObject<MyStack>(std::shared_ptr<MyStack>(new MyStack(engine)));
+    engine.tree.addObject<MyStack>(std::shared_ptr<MyStack>(new MyStack(engine, sf::Vector2f(64,32))));
     
     engine.camera.setViewport(sf::FloatRect(0.f, 0.f, 1.f, 1.f));
 
