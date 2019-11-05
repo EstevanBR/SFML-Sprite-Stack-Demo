@@ -13,7 +13,7 @@ std::string name = "MyStack";
 MyStack::MyStack(Engine &engine, sf::Vector2f startingPosition) {
     inputComponent = std::shared_ptr<MyStackInputComponent>(new MyStackInputComponent(engine, *this));
     physicsComponent = std::shared_ptr<MyStackPhysicsComponent>(new MyStackPhysicsComponent(engine, *this, *inputComponent));
-    graphicsComponent = std::shared_ptr<MyStackGraphicsComponent>(new MyStackGraphicsComponent(engine, *this));
+    graphicsComponent = std::shared_ptr<MyStackGraphicsComponent>(new MyStackGraphicsComponent(engine, *this, *inputComponent));
 
     position = startingPosition;
 }
@@ -55,12 +55,14 @@ void MyStackInputComponent::process(float delta) {
     _inputVector.y += (engine.input.userInput.down) ? 1.f : 0.f;
 
     _inputVector = math::normalized(_inputVector);
+    _inputVector = math::rotateAroundOrigin(math::degreesToRadians(-engine.camera.getRotation()), _inputVector);
 
-    engine.camera.rotate(delta);
+    engine.camera.rotate(15 * delta);
+
     engine.window.setView(engine.camera);
 }
 
-MyStackGraphicsComponent::MyStackGraphicsComponent(Engine &engine, MyStack &owner):_owner(owner), GraphicsComponent<MyStack>(engine, owner) {
+MyStackGraphicsComponent::MyStackGraphicsComponent(Engine &engine, MyStack &owner, MyStackInputComponent &inputComponent):_owner(owner), _inputComponent(inputComponent), GraphicsComponent<MyStack>(engine, owner) {
     _stackSprite = std::shared_ptr<SpriteStack>(new SpriteStack("icon.png", sf::Vector3i(16, 16, 16)));
     engine.graphics.addObject<SpriteStack>(_stackSprite);
 }
@@ -68,4 +70,5 @@ MyStackGraphicsComponent::MyStackGraphicsComponent(Engine &engine, MyStack &owne
 void MyStackGraphicsComponent::process(float delta) {
     _stackSprite->position = _owner.position;
     _stackSprite->angle = -engine.camera.getRotation();
+    //_stackSprite->angle = math::angleTo(inputComponent.inputVector
 }
