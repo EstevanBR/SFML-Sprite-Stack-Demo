@@ -2,6 +2,7 @@
 
 #include <memory>
 #include <cmath>
+#include "Math.hpp"
 #include "Tree.hpp"
 #include "Graphics.hpp"
 #include "Input.hpp"
@@ -53,11 +54,8 @@ void MyStackInputComponent::process(float delta) {
     _inputVector.y += (engine.input.userInput.up) ? -1.f : 0.f;
     _inputVector.y += (engine.input.userInput.down) ? 1.f : 0.f;
 
-    if (abs(_inputVector.x) > 0.f || abs(_inputVector.y) > 0.f) {
-        auto s = sqrtf(powf(_inputVector.x, 2.f) + powf(_inputVector.y, 2.f));
-        _inputVector.x /= s;
-        _inputVector.y /= s;
-    }  
+    _inputVector = math::normalized(_inputVector);
+
     engine.camera.rotate(delta);
     engine.window.setView(engine.camera);
 }
