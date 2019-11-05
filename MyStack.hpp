@@ -66,7 +66,7 @@ private:
 	std::shared_ptr<MyStackGraphicsComponent> graphicsComponent;
 	void process(float delta) override;
 public:
-	MyStack(Engine &engine);
+	MyStack(Engine &engine, sf::Vector2f startingPosition = sf::Vector2f(0,0));
 };
 
 #endif

@@ -9,10 +9,12 @@
 #include "Physics.hpp"
 
 std::string name = "MyStack";
-MyStack::MyStack(Engine &engine) {
+MyStack::MyStack(Engine &engine, sf::Vector2f startingPosition) {
     inputComponent = std::shared_ptr<MyStackInputComponent>(new MyStackInputComponent(engine, *this));
     physicsComponent = std::shared_ptr<MyStackPhysicsComponent>(new MyStackPhysicsComponent(engine, *this, *inputComponent));
     graphicsComponent = std::shared_ptr<MyStackGraphicsComponent>(new MyStackGraphicsComponent(engine, *this));
+
+    position = startingPosition;
 }
 
 void MyStack::process(float delta) {
