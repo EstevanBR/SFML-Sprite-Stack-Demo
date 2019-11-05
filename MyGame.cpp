@@ -42,6 +42,5 @@ void MyGame::initialized(Engine &engine) {
 }
 
 MyGame::~MyGame() {
-    myStack1.reset();
     std::cout << "MyGame::~MyGame" << std::endl;
 }
