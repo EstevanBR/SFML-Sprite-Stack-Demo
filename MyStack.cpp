@@ -53,7 +53,7 @@ void MyStackInputComponent::process(float delta) {
     _inputVector.y += (engine.input.userInput.up) ? -1.f : 0.f;
     _inputVector.y += (engine.input.userInput.down) ? 1.f : 0.f;
 
-    if (_inputVector.x > 0.f || _inputVector.y > 0.f) {
+    if (abs(_inputVector.x) > 0.f || abs(_inputVector.y) > 0.f) {
         auto s = sqrtf(powf(_inputVector.x, 2.f) + powf(_inputVector.y, 2.f));
         _inputVector.x /= s;
         _inputVector.y /= s;

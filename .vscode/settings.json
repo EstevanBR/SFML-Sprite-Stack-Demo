@@ -69,5 +69,6 @@
         "locale": "cpp",
         "mutex": "cpp",
         "ratio": "cpp"
-    }
+    },
+    "C_Cpp.default.configurationProvider": "vector-of-bool.cmake-tools"
 }
