@@ -1,7 +1,10 @@
 #include "MyGame.hpp"
 #include "Engine.hpp"
+#include "Tree.hpp"
 #include "MyStack.hpp"
 #include "Collection.hpp"
+#include "Graphics.hpp"
+#include "Camera.hpp"
 
 sf::Texture floorTex;
 

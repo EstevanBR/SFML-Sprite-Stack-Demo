@@ -2,6 +2,8 @@
 #include "MyStack.hpp"
 #include "RectCollisionShape.hpp"
 #include "MyStackInputComponent.hpp"
+#include "Engine.hpp"
+#include "Physics.hpp"
 
 
 MyStackPhysicsComponent::MyStackPhysicsComponent(Engine &engine, MyStack &owner, MyStackInputComponent &inputComponent):

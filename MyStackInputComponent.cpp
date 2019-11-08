@@ -1,5 +1,8 @@
 #include "Math.hpp"
 #include "MyStackInputComponent.hpp"
+#include "Input.hpp"
+#include "Engine.hpp"
+#include "Camera.hpp"
 
 MyStackInputComponent::MyStackInputComponent(Engine &engine, MyStack &myStack):
     _owner(myStack),

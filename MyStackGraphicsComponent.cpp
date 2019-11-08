@@ -1,6 +1,9 @@
 #include "MyStackGraphicsComponent.hpp"
 #include "SpriteStack.hpp"
 #include "MyStack.hpp"
+#include "Graphics.hpp"
+#include "Engine.hpp"
+#include "Camera.hpp"
 
 MyStackGraphicsComponent::MyStackGraphicsComponent(Engine &engine, MyStack &owner, MyStackInputComponent &inputComponent):_owner(owner), _inputComponent(inputComponent), GraphicsComponent<MyStack>(engine, owner) {
     _stackSprite = std::shared_ptr<SpriteStack>(new SpriteStack("icon.png", sf::Vector3i(16, 16, 16)));
