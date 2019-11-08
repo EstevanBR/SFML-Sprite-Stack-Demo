@@ -9,7 +9,12 @@ set(SFML_DEMO_SOURCES
     MyGame.hpp
     MyStack.cpp
     MyStack.hpp
-    DeathZone.hpp
+    MyStackGraphicsComponent.hpp
+    MyStackGraphicsComponent.cpp
+    MyStackInputComponent.hpp
+    MyStackInputComponent.cpp
+    MyStackPhysicsComponent.hpp
+    MyStackPhysicsComponent.cpp
 )
 
 add_executable(SpriteStack ${SFML_DEMO_SOURCES})
