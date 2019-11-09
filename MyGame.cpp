@@ -5,8 +5,8 @@
 #include "Collection.hpp"
 #include "Graphics.hpp"
 #include "Camera.hpp"
+#include "TextureManager.hpp"
 
-sf::Texture floorTex;
 
 MyGame::MyGame() {
     main(sf::VideoMode(1280,960), "MyGame", sf::Style::Resize|sf::Style::Close);
@@ -15,12 +15,16 @@ MyGame::MyGame() {
 void MyGame::initialized(Engine &engine) {
     std::cout << "MyGame::initialized" << std::endl;
     const sf::Vector2u windowSize = engine.window.getSize();
-    if (floorTex.loadFromFile("tile.png")) {
-        floor = std::shared_ptr<sf::Sprite>(new sf::Sprite(floorTex));
-        floor->setScale(sf::Vector2f(1.f, 1.f));
-        floor->setTextureRect(sf::IntRect(0,0,windowSize.x, windowSize.y));
-        floorTex.setRepeated(true);
-        engine.graphics.Collection<sf::Drawable>::addObject(floor);
+    
+    TextureManager::getTexture("tile.png");
+
+    auto floorTexture = TextureManager::getTexture("tile.png");
+    if (!floorTexture.expired()) {
+        _floor = std::shared_ptr<sf::Sprite>(new sf::Sprite(*floorTexture.lock().get()));
+        _floor->setScale(sf::Vector2f(1.f, 1.f));
+        _floor->setTextureRect(sf::IntRect(0,0,windowSize.x, windowSize.y));
+        floorTexture.lock().get()->setRepeated(true);
+        engine.graphics.Collection<sf::Drawable>::addObject(_floor);
     }
     engine.window.setVerticalSyncEnabled(true);
     engine.window.setFramerateLimit(60);
