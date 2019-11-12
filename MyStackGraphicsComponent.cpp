@@ -16,6 +16,4 @@ MyStackGraphicsComponent::MyStackGraphicsComponent(const sf::View &view, Graphic
 
 void MyStackGraphicsComponent::process(float delta) {
     _stackSprite->position = _owner.position;
-    
-    _stackSprite->angle = -_view.getRotation();
 }
