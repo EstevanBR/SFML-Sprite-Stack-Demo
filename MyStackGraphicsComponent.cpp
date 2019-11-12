@@ -11,9 +11,10 @@ MyStackGraphicsComponent::MyStackGraphicsComponent(const sf::View &view, Graphic
     _view(view),
     GraphicsComponent<MyStack>(graphics, tree, owner) {
     _stackSprite = std::shared_ptr<SpriteStack>(new SpriteStack("icon.png", sf::Vector3i(16, 16, 16)));
+    _stackSprite->setPosition(_owner.getPosition());
     graphics.addObject<SpriteStack>(_stackSprite);
 }
 
 void MyStackGraphicsComponent::process(float delta) {
-    _stackSprite->position = _owner.position;
+    _stackSprite->setPosition(_owner.getPosition());
 }

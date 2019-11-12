@@ -39,7 +39,11 @@ void MyGame::initialized(Engine &engine) {
         )
     );
     
-    engine.tree.addObject<MyStack>(std::shared_ptr<MyStack>(new MyStack(engine, sf::Vector2f(windowSize.x / 2,windowSize.y / 2))));
+    auto myStack = engine.tree.addObject<MyStack>(std::shared_ptr<MyStack>(new MyStack(engine)));
+    myStack->setPosition(sf::Vector2f(windowSize.x / 2,windowSize.y / 2));
+
+    auto billBoardSprite = engine.graphics.addObject<BillboardSprite>(std::shared_ptr<BillboardSprite>(new BillboardSprite("character.png")));
+    billBoardSprite->setPosition(sf::Vector2f(windowSize.x / 2, windowSize.y / 2));
 
     engine.camera.setViewport(sf::FloatRect(0.f, 0.f, 1.f, 1.f));
 

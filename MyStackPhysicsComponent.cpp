@@ -19,6 +19,5 @@ void MyStackPhysicsComponent::process(float delta) {
     _velocity += _inputVector * 15.f * delta;
     _velocity.x *= _friction.x;
     _velocity.y *= _friction.y;
-    _owner.position.x += _velocity.x;
-    _owner.position.y += _velocity.y;
+    _owner.setPosition(_owner.getPosition() + _velocity);
 }
