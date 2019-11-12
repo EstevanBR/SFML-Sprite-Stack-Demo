@@ -2,6 +2,7 @@
 #include "Engine.hpp"
 #include "Tree.hpp"
 #include "MyStack.hpp"
+#include "BillboardSprite.hpp"
 #include "Collection.hpp"
 #include "Graphics.hpp"
 #include "Camera.hpp"
@@ -39,7 +40,7 @@ void MyGame::initialized(Engine &engine) {
     );
     
     engine.tree.addObject<MyStack>(std::shared_ptr<MyStack>(new MyStack(engine, sf::Vector2f(windowSize.x / 2,windowSize.y / 2))));
-    
+
     engine.camera.setViewport(sf::FloatRect(0.f, 0.f, 1.f, 1.f));
 
     engine.window.setView(engine.camera);
